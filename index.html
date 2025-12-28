@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>PB Market</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+
+<header class="bg-black p-4 text-center text-xl font-bold">
+  🕹️ PB MARKET — Contas Point Blank
+</header>
+
+<main class="p-4 grid gap-4 md:grid-cols-3">
+
+  <!-- PRODUTO -->
+  <div class="bg-gray-800 p-4 rounded">
+    <h2 class="font-bold text-lg">Conta PB Gold</h2>
+    <p class="text-green-400 font-bold">R$ 50,00</p>
+    <button onclick="addCarrinho('Conta PB Gold',50)"
+      class="mt-2 bg-green-600 px-4 py-2 rounded w-full">
+      Comprar
+    </button>
+  </div>
+
+  <div class="bg-gray-800 p-4 rounded">
+    <h2 class="font-bold text-lg">Conta PB Full</h2>
+    <p class="text-green-400 font-bold">R$ 120,00</p>
+    <button onclick="addCarrinho('Conta PB Full',120)"
+      class="mt-2 bg-green-600 px-4 py-2 rounded w-full">
+      Comprar
+    </button>
+  </div>
+
+</main>
+
+<!-- CARRINHO -->
+<div class="fixed bottom-0 left-0 right-0 bg-black p-4">
+  <p id="total">Total: R$ 0</p>
+  <button onclick="finalizar()"
+    class="bg-blue-600 px-4 py-2 rounded w-full mt-2">
+    Finalizar no Pix
+  </button>
+</div>
+
+<script>
+let total = 0;
+
+function addCarrinho(nome, valor) {
+  total += valor;
+  document.getElementById('total').innerText = 'Total: R$ ' + total;
+}
+
+function finalizar() {
+  alert(
+    "Pagamento via Pix\n\n" +
+    "Chave Pix:\n" +
+    "diasbreno835@gmail.com\n\n" +
+    "Após pagar, envie o comprovante."
+  );
+}
+</script>
+
+</body>
+</html>
