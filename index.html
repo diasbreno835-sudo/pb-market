@@ -3,170 +3,157 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PB Mercado - Catálogo de Contas</title>
+<title>Royal Vendas - Mercado de Contas</title>
 
 <style>
 body { 
     font-family: 'Segoe UI', sans-serif; 
-    background-color: #0a0a0a; 
-    color: #fff; 
-    margin: 0; 
-    padding: 0;
-}
-
-header { 
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)); 
-    padding: 60px 20px; 
+    background: linear-gradient(120deg,#2c003e,#1a001f); 
+    color: white; 
     text-align: center; 
-    border-bottom: 4px solid #FFD700; 
+    margin:0; padding:0;
+}
+.container { padding: 20px; }
+
+h1 { color: #FFD700; text-shadow: 2px 2px 5px #4b0082; }
+
+.tabs { margin-bottom: 20px; }
+.tab-btn { 
+    background: #4b0082; 
+    color: #FFD700; 
+    border: 2px solid #FFD700; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    margin-right:5px; 
+    border-radius:10px; 
+    font-weight:bold;
+    transition: 0.3s;
+}
+.tab-btn.active, .tab-btn:hover { 
+    background: #FFD700; 
+    color: #4b0082; 
+    box-shadow: 0 0 15px #FFD700;
 }
 
-header h1{
-    color:#FFD700;
-    letter-spacing:3px;
+.card { 
+    background: linear-gradient(135deg,#4b0082,#2c003e); 
+    border: 2px solid #FFD700; 
+    border-radius: 20px; 
+    padding: 20px; 
+    margin: 10px auto; 
+    width: 300px; 
+    display: none;
+    box-shadow: 0 0 20px #FFD700;
+    transition: transform 0.3s;
 }
+.card:hover { transform: scale(1.05); }
 
-.vendedor-ativo{
+.card h3 { color: #FFD700; }
+.card p { color: #eee; font-size: 14px; margin:5px 0; }
+.price { color: #FFD700; font-size: 22px; font-weight: bold; }
+
+.btn-whats { 
+    background: #25d366; 
+    color: #000; 
+    border: none; 
+    padding: 12px 20px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    margin-top: 12px; 
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn-whats:hover { transform: scale(1.05); }
+
+/* BOTÃO VENDEDOR ONLINE PISCANDO */
+.vendedor-online {
     display:inline-block;
-    margin-top:15px;
-    padding:10px 22px;
     background:#25d366;
     color:#000;
     font-weight:bold;
+    padding:10px 20px;
     border-radius:20px;
+    margin-top:10px;
     text-transform:uppercase;
-    font-size:13px;
-    animation:pulse 1.2s infinite;
+    animation: pulse 1.2s infinite;
 }
-
 @keyframes pulse{
     0%{opacity:1;}
     50%{opacity:.4;}
     100%{opacity:1;}
 }
 
-.container { 
-    padding: 40px 20px; 
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 25px; 
-}
-
-.card { 
-    background: #151515; 
-    border: 2px solid #222; 
-    border-radius: 20px; 
-    width: 320px; 
-    transition: 0.4s;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-}
-
-.card:hover { 
-    border-color: #FFD700; 
-    transform: scale(1.05); 
-}
-
-.card-header {
-    background: linear-gradient(45deg,#FFD700,#b8860b);
-    padding: 15px;
-    font-weight: bold;
-    color: #000;
-    text-transform: uppercase;
-    text-align:center;
-}
-
-.info { 
-    padding: 20px; 
-    text-align:center;
-}
-
-.info p{
-    color:#ccc;
-    font-size:14px;
-    margin:6px 0;
-}
-
-.price-tag { 
-    font-size: 26px; 
-    color: #FFD700; 
-    font-weight: bold; 
-    margin: 18px 0;
-}
-
-.btn-vendedor { 
-    background: linear-gradient(45deg,#FFD700,#b8860b);
-    color: #000; 
-    text-decoration: none; 
-    display: block; 
-    padding: 18px; 
-    font-weight: bold; 
-    text-transform: uppercase;
-    text-align: center;
-    border-radius:0 0 20px 20px;
-}
-
-.btn-vendedor:hover { 
-    filter:brightness(1.2);
+footer{
+    margin-top:40px;
+    font-size:12px;
+    color:#FFD700;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>PB MERCADO</h1>
-    <p>Catálogo de Contas Ativas</p>
-    <div class="vendedor-ativo">Vendedor Ativo</div>
-</header>
-
 <div class="container">
-    
-    <div class="card">
-        <div class="card-header">Point Blank</div>
-        <div class="info">
+    <h1>👑 ROYAL VENDAS</h1>
+    <p>Mercado de Contas Point Blank & Free Fire</p>
+    <div class="vendedor-online">Vendedor Online</div>
+
+    <!-- ABAS -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('pb')">Point Blank</button>
+        <button class="tab-btn" onclick="showTab('ff')">Free Fire</button>
+    </div>
+
+    <!-- CONTAS POINT BLANK -->
+    <div id="pb" class="tab-content">
+        <div class="card">
+            <h3>Point Blank</h3>
             <p>Patente: Tenente Coronel 3</p>
-            <p>Augs disponíveis</p>
-            <p>2 personagens permanentes</p>
-            <div class="price-tag">R$ 175,00</div>
+            <p>Augs + 2 personagens permanentes</p>
+            <p class="price">R$ 175,00</p>
+            <a class="btn-whats" href="https://wa.me/5511919549977?text=Olá, quero a conta Point Blank Tenente Coronel 3" target="_blank">Comprar no WhatsApp</a>
         </div>
-        <a href="https://wa.me/5511919549977" class="btn-vendedor" target="_blank">
-            Comprar no WhatsApp
-        </a>
-    </div>
 
-    <div class="card">
-        <div class="card-header">Point Blank</div>
-        <div class="info">
-            <p>Ex-banida (era General)</p>
-            <p>Patente atual: 2º Sargento</p>
+        <div class="card">
+            <h3>Point Blank</h3>
+            <p>Ex-banida (antiga Marechal)</p>
             <p>Todos os títulos</p>
-            <p>Passe atual</p>
-            <div class="price-tag">R$ 135,00</div>
+            <p class="price">R$ 135,00</p>
+            <a class="btn-whats" href="https://wa.me/5511919549977?text=Olá, quero a conta Point Blank Ex-Banida (antiga Marechal)" target="_blank">Comprar no WhatsApp</a>
         </div>
-        <a href="https://wa.me/5511919549977" class="btn-vendedor" target="_blank">
-            Comprar no WhatsApp
-        </a>
     </div>
 
-    <div class="card">
-        <div class="card-header">Free Fire</div>
-        <div class="info">
+    <!-- CONTAS FREE FIRE -->
+    <div id="ff" class="tab-content">
+        <div class="card">
+            <h3>Free Fire</h3>
             <p>Quase todos os passes Booyah</p>
             <p>Itens raros que não voltam</p>
-            <p>Conta muito completa</p>
-            <div class="price-tag">R$ 170,00</div>
+            <p class="price">R$ 135,00</p>
+            <a class="btn-whats" href="https://wa.me/5511919549977?text=Olá, quero a conta Free Fire completa" target="_blank">Comprar no WhatsApp</a>
         </div>
-        <a href="https://wa.me/5511919549977" class="btn-vendedor" target="_blank">
-            Comprar no WhatsApp
-        </a>
     </div>
-
 </div>
 
-<footer style="padding:40px;text-align:center;font-size:12px;color:#777;">
-    PB MERCADO — VENDAS OFICIAIS
+<footer>
+    ROYAL VENDAS — Atendimento direto no WhatsApp<br>
+    📱 (11) 91954-9977
 </footer>
 
+<script>
+// Função para alternar abas
+function showTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    document.querySelectorAll('.tab-content').forEach(c => c.querySelectorAll('.card').forEach(card => card.style.display = 'none'));
+    document.getElementById(tab).querySelectorAll('.card').forEach(card => card.style.display = 'block');
+}
+
+// Inicializa mostrando Point Blank
+showTab('pb');
+</script>
+
 </body>
-</html>
+    </html>
