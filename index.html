@@ -6,88 +6,128 @@
 <title>Royal Vendas - Mercado de Contas</title>
 
 <style>
-body { 
-    font-family: 'Segoe UI', sans-serif; 
-    background: linear-gradient(120deg,#2c003e,#1a001f); 
-    color: white; 
-    text-align: center; 
+/* Reset e corpo */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(120deg,#2c003e,#1a001f);
+    color: white;
     margin:0; padding:0;
 }
-.container { padding: 20px; }
-
-h1 { color: #FFD700; text-shadow: 2px 2px 5px #4b0082; }
-
-.tabs { margin-bottom: 20px; }
-.tab-btn { 
-    background: #4b0082; 
-    color: #FFD700; 
-    border: 2px solid #FFD700; 
-    padding: 10px 20px; 
-    cursor: pointer; 
-    margin-right:5px; 
-    border-radius:10px; 
-    font-weight:bold;
-    transition: 0.3s;
+.container {
+    max-width: 1000px;
+    margin:auto;
+    padding:20px;
+    text-align:center;
 }
-.tab-btn.active, .tab-btn:hover { 
-    background: #FFD700; 
-    color: #4b0082; 
-    box-shadow: 0 0 15px #FFD700;
+h1 {
+    color:#FFD700;
+    text-shadow:2px 2px 5px #4b0082;
+    margin-bottom:5px;
 }
 
-.card { 
-    background: linear-gradient(135deg,#4b0082,#2c003e); 
-    border: 2px solid #FFD700; 
-    border-radius: 20px; 
-    padding: 20px; 
-    margin: 10px auto; 
-    width: 300px; 
-    display: none;
-    box-shadow: 0 0 20px #FFD700;
-    transition: transform 0.3s;
-}
-.card:hover { transform: scale(1.05); }
-
-.card h3 { color: #FFD700; }
-.card p { color: #eee; font-size: 14px; margin:5px 0; }
-.price { color: #FFD700; font-size: 22px; font-weight: bold; }
-
-.btn-whats { 
-    background: #25d366; 
-    color: #000; 
-    border: none; 
-    padding: 12px 20px; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    margin-top: 12px; 
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-block;
-}
-.btn-whats:hover { transform: scale(1.05); }
-
-/* BOTÃO VENDEDOR ONLINE PISCANDO */
-.vendedor-online {
+/* Botão Vendedor Online */
+.vendedor-online{
     display:inline-block;
     background:#25d366;
     color:#000;
     font-weight:bold;
-    padding:10px 20px;
-    border-radius:20px;
-    margin-top:10px;
+    padding:10px 25px;
+    border-radius:25px;
+    margin:10px 0 20px 0;
     text-transform:uppercase;
-    animation: pulse 1.2s infinite;
+    animation:pulse 1.2s infinite;
+    box-shadow:0 0 15px #25d366;
 }
 @keyframes pulse{
-    0%{opacity:1;}
-    50%{opacity:.4;}
-    100%{opacity:1;}
+    0%{opacity:1; transform: scale(1);}
+    50%{opacity:.4; transform: scale(1.05);}
+    100%{opacity:1; transform: scale(1);}
 }
 
+/* Abas */
+.tabs {
+    display:flex;
+    justify-content:center;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+}
+.tab-btn {
+    background:#4b0082;
+    color:#FFD700;
+    border:2px solid #FFD700;
+    padding:10px 25px;
+    margin:5px;
+    border-radius:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+.tab-btn.active, .tab-btn:hover{
+    background:#FFD700;
+    color:#4b0082;
+    box-shadow:0 0 20px #FFD700;
+}
+
+/* Cards */
+.cards-wrapper{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap:25px;
+    justify-items:center;
+}
+.card{
+    background: linear-gradient(135deg,#4b0082,#2c003e);
+    border:2px solid #FFD700;
+    border-radius:25px;
+    padding:20px;
+    width:100%;
+    max-width:300px;
+    box-shadow:0 0 25px #FFD700;
+    transition: all 0.4s ease;
+}
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 35px #FFD700, 0 0 50px #FFFA7F;
+}
+.card h3{
+    color:#FFD700;
+    margin-bottom:10px;
+    text-shadow:1px 1px 3px #4b0082;
+}
+.card p{
+    color:#eee;
+    font-size:14px;
+    margin:5px 0;
+}
+.price{
+    color:#FFD700;
+    font-size:22px;
+    font-weight:bold;
+    margin:10px 0;
+}
+.btn-whats{
+    background:#25d366;
+    color:#000;
+    border:none;
+    padding:12px 20px;
+    border-radius:15px;
+    font-weight:bold;
+    text-decoration:none;
+    display:inline-block;
+    box-shadow:0 0 10px #25d366;
+    transition:0.3s;
+}
+.btn-whats:hover{
+    transform: scale(1.05);
+    box-shadow:0 0 20px #25d366;
+}
+
+/* Footer */
 footer{
     margin-top:40px;
     font-size:12px;
     color:#FFD700;
+    text-shadow:1px 1px 3px #4b0082;
 }
 </style>
 </head>
@@ -99,61 +139,63 @@ footer{
     <p>Mercado de Contas Point Blank & Free Fire</p>
     <div class="vendedor-online">Vendedor Online</div>
 
-    <!-- ABAS -->
+    <!-- Abas -->
     <div class="tabs">
         <button class="tab-btn active" onclick="showTab('pb')">Point Blank</button>
         <button class="tab-btn" onclick="showTab('ff')">Free Fire</button>
     </div>
 
-    <!-- CONTAS POINT BLANK -->
+    <!-- Point Blank -->
     <div id="pb" class="tab-content">
-        <div class="card">
-            <h3>Point Blank</h3>
-            <p>Patente: Tenente Coronel 3</p>
-            <p>Augs + 2 personagens permanentes</p>
-            <p class="price">R$ 175,00</p>
-            <a class="btn-whats" href="https://wa.me/5511919549977?text=Olá, quero a conta Point Blank Tenente Coronel 3" target="_blank">Comprar no WhatsApp</a>
-        </div>
-
-        <div class="card">
-            <h3>Point Blank</h3>
-            <p>Ex-banida (antiga Marechal)</p>
-            <p>Todos os títulos</p>
-            <p class="price">R$ 135,00</p>
-            <a class="btn-whats" href="https://wa.me/5511919549977?text=Olá, quero a conta Point Blank Ex-Banida (antiga Marechal)" target="_blank">Comprar no WhatsApp</a>
+        <div class="cards-wrapper">
+            <div class="card">
+                <h3>Point Blank</h3>
+                <p>Patente: Tenente Coronel 3</p>
+                <p>Augs + 2 personagens permanentes</p>
+                <p class="price">R$ 175,00</p>
+                <a class="btn-whats" href="https://wa.me/5511919549977?text=Olá, quero a conta Point Blank Tenente Coronel 3" target="_blank">Comprar no WhatsApp</a>
+            </div>
+            <div class="card">
+                <h3>Point Blank</h3>
+                <p>Ex-banida (antiga Marechal)</p>
+                <p>Todos os títulos</p>
+                <p class="price">R$ 135,00</p>
+                <a class="btn-whats" href="https://wa.me/5511919549977?text=Olá, quero a conta Point Blank Ex-Banida (antiga Marechal)" target="_blank">Comprar no WhatsApp</a>
+            </div>
         </div>
     </div>
 
-    <!-- CONTAS FREE FIRE -->
+    <!-- Free Fire -->
     <div id="ff" class="tab-content">
-        <div class="card">
-            <h3>Free Fire</h3>
-            <p>Quase todos os passes Booyah</p>
-            <p>Itens raros que não voltam</p>
-            <p class="price">R$ 135,00</p>
-            <a class="btn-whats" href="https://wa.me/5511919549977?text=Olá, quero a conta Free Fire completa" target="_blank">Comprar no WhatsApp</a>
+        <div class="cards-wrapper">
+            <div class="card">
+                <h3>Free Fire</h3>
+                <p>Quase todos os passes Booyah</p>
+                <p>Itens raros que não voltam</p>
+                <p class="price">R$ 135,00</p>
+                <a class="btn-whats" href="https://wa.me/5511919549977?text=Olá, quero a conta Free Fire completa" target="_blank">Comprar no WhatsApp</a>
+            </div>
         </div>
     </div>
+
 </div>
 
 <footer>
-    ROYAL VENDAS — Atendimento direto no WhatsApp<br>
-    📱 (11) 91954-9977
+ROYAL VENDAS — Atendimento direto no WhatsApp<br>
+📱 (11) 91954-9977
 </footer>
 
 <script>
-// Função para alternar abas
-function showTab(tab) {
+// Alternar abas
+function showTab(tab){
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
-
-    document.querySelectorAll('.tab-content').forEach(c => c.querySelectorAll('.card').forEach(card => card.style.display = 'none'));
-    document.getElementById(tab).querySelectorAll('.card').forEach(card => card.style.display = 'block');
+    document.querySelectorAll('.tab-content').forEach(c => c.style.display='none');
+    document.getElementById(tab).style.display='block';
 }
-
 // Inicializa mostrando Point Blank
 showTab('pb');
 </script>
 
 </body>
-    </html>
+</html>
