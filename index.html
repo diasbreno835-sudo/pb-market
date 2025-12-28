@@ -3,25 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PB Mercado - Vitrine de Contas</title>
+<title>PB Mercado - Catálogo de Contas</title>
 
 <style>
-body{
-    margin:0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(rgba(0,0,0,.85), rgba(0,0,0,.95)),
-    url("https://wallpaperaccess.com/full/1625241.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    color:#fff;
+body { 
+    font-family: 'Segoe UI', sans-serif; 
+    background-color: #0a0a0a; 
+    color: #fff; 
+    margin: 0; 
+    padding: 0;
 }
 
-header{
-    text-align:center;
-    padding:60px 20px;
-    border-bottom:3px solid #FFD700;
-    background:linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.9)),
-    url("https://wallpaperaccess.com/full/2565430.jpg");
+header { 
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)); 
+    padding: 60px 20px; 
+    text-align: center; 
+    border-bottom: 4px solid #FFD700; 
 }
 
 header h1{
@@ -29,18 +26,147 @@ header h1{
     letter-spacing:3px;
 }
 
-/* BOTÃO VENDEDOR ATIVO */
 .vendedor-ativo{
     display:inline-block;
     margin-top:15px;
-    padding:10px 20px;
+    padding:10px 22px;
     background:#25d366;
     color:#000;
     font-weight:bold;
     border-radius:20px;
-    animation: piscar 1.2s infinite;
     text-transform:uppercase;
     font-size:13px;
+    animation:pulse 1.2s infinite;
 }
 
-@keyframes piscar{
+@keyframes pulse{
+    0%{opacity:1;}
+    50%{opacity:.4;}
+    100%{opacity:1;}
+}
+
+.container { 
+    padding: 40px 20px; 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 25px; 
+}
+
+.card { 
+    background: #151515; 
+    border: 2px solid #222; 
+    border-radius: 20px; 
+    width: 320px; 
+    transition: 0.4s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.card:hover { 
+    border-color: #FFD700; 
+    transform: scale(1.05); 
+}
+
+.card-header {
+    background: linear-gradient(45deg,#FFD700,#b8860b);
+    padding: 15px;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+    text-align:center;
+}
+
+.info { 
+    padding: 20px; 
+    text-align:center;
+}
+
+.info p{
+    color:#ccc;
+    font-size:14px;
+    margin:6px 0;
+}
+
+.price-tag { 
+    font-size: 26px; 
+    color: #FFD700; 
+    font-weight: bold; 
+    margin: 18px 0;
+}
+
+.btn-vendedor { 
+    background: linear-gradient(45deg,#FFD700,#b8860b);
+    color: #000; 
+    text-decoration: none; 
+    display: block; 
+    padding: 18px; 
+    font-weight: bold; 
+    text-transform: uppercase;
+    text-align: center;
+    border-radius:0 0 20px 20px;
+}
+
+.btn-vendedor:hover { 
+    filter:brightness(1.2);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>PB MERCADO</h1>
+    <p>Catálogo de Contas Ativas</p>
+    <div class="vendedor-ativo">Vendedor Ativo</div>
+</header>
+
+<div class="container">
+    
+    <div class="card">
+        <div class="card-header">Point Blank</div>
+        <div class="info">
+            <p>Patente: Tenente Coronel 3</p>
+            <p>Augs disponíveis</p>
+            <p>2 personagens permanentes</p>
+            <div class="price-tag">R$ 175,00</div>
+        </div>
+        <a href="https://wa.me/5511919549977" class="btn-vendedor" target="_blank">
+            Comprar no WhatsApp
+        </a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">Point Blank</div>
+        <div class="info">
+            <p>Ex-banida (era General)</p>
+            <p>Patente atual: 2º Sargento</p>
+            <p>Todos os títulos</p>
+            <p>Passe atual</p>
+            <div class="price-tag">R$ 135,00</div>
+        </div>
+        <a href="https://wa.me/5511919549977" class="btn-vendedor" target="_blank">
+            Comprar no WhatsApp
+        </a>
+    </div>
+
+    <div class="card">
+        <div class="card-header">Free Fire</div>
+        <div class="info">
+            <p>Quase todos os passes Booyah</p>
+            <p>Itens raros que não voltam</p>
+            <p>Conta muito completa</p>
+            <div class="price-tag">R$ 170,00</div>
+        </div>
+        <a href="https://wa.me/5511919549977" class="btn-vendedor" target="_blank">
+            Comprar no WhatsApp
+        </a>
+    </div>
+
+</div>
+
+<footer style="padding:40px;text-align:center;font-size:12px;color:#777;">
+    PB MERCADO — VENDAS OFICIAIS
+</footer>
+
+</body>
+</html>
