@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Loja Gamer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background-color: #0d0d0d;
+      padding: 20px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      border-bottom: 1px solid #222;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .product {
+      background-color: #111;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .product img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 12px;
+      background-color: #222;
+    }
+
+    .info {
+      flex: 1;
+    }
+
+    .info h1 {
+      margin: 0 0 10px;
+      font-size: 28px;
+    }
+
+    .info p {
+      color: #ccc;
+    }
+
+    .info ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .price {
+      font-size: 26px;
+      color: #00ff99;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #00ff99;
+      color: #000;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    .cart {
+      margin-top: 30px;
+      background-color: #111;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  🎮 Loja Gamer
+</header>
+
+<div class="container">
+
+  <div class="product">
+    <img src="https://via.placeholder.com/350x350?text=Produto+Digital" alt="Produto Digital">
+
+    <div class="info">
+      <h1>Conta Tenente-Coronel 4</h1>
+
+      <p>Conta de alto nível, produto digital para jogadores experientes.</p>
+
+      <ul>
+        <li>3 passes</li>
+        <li>Ídolo permanente</li>
+        <li>Muitas armas</li>
+        <li>Bastante títulos</li>
+      </ul>
+
+      <div class="price">R$ 250,00</div>
+
+      <button onclick="adicionarCarrinho()">Adicionar ao Carrinho</button>
+    </div>
+  </div>
+
+  <div class="cart">
+    <h2>🛒 Carrinho</h2>
+    <p id="textoCarrinho">Nenhum produto adicionado.</p>
+    <button onclick="finalizarCompra()">Finalizar no WhatsApp</button>
+  </div>
+
+</div>
+
+<footer>
+  Produto digital • Atendimento via WhatsApp
+</footer>
+
+<script>
+  let noCarrinho = false;
+
+  function adicionarCarrinho() {
+    noCarrinho = true;
+    document.getElementById("textoCarrinho").innerText =
+      "Conta Tenente-Coronel 4 — R$ 250,00";
+    alert("Produto adicionado ao carrinho!");
+  }
+
+  function finalizarCompra() {
+    if (!noCarrinho) {
+      alert("Adicione o produto ao carrinho primeiro.");
+      return;
+    }
+
+    const mensagem = encodeURIComponent(
+      "Olá, tenho interesse no produto Conta Tenente-Coronel 4 no valor de R$250. Gostaria de finalizar a compra."
+    );
+
+    const linkWhatsApp = "https://wa.me/5511919549977?text=" + mensagem;
+    window.open(linkWhatsApp, "_blank");
+  }
+</script>
+
+</body>
+</html>
